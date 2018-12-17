@@ -17,12 +17,17 @@ final class AKImagePickerCell: UICollectionViewCell {
 
     static let reuseIdentifier = "AKCELL"
     private var imageView = UIImageView()
+    private var checkmarkView = UIImageView()
     
     // MARK: - Overrides
     
     override var isSelected: Bool {
         didSet {
-            print("I was tapped! - i am now: ", self.isSelected)
+            if isSelected {
+                checkmarkView.alpha = 1
+            } else {
+                checkmarkView.alpha = 0
+            }
         }
     }
     
@@ -43,13 +48,24 @@ final class AKImagePickerCell: UICollectionViewCell {
     // MARK: - Private methods
     
     private func setup() {
-        imageView.backgroundColor = .green  
+        // checkmark
+        checkmarkView.image = UIImage(named: "baseline_check_circle_white_48pt")?.withRenderingMode(.alwaysTemplate)
+        checkmarkView.tintColor = .green
+        checkmarkView.alpha = 0
         
         // AddSubviewsAndConstraints
         contentView.addSubview(imageView)
+        contentView.addSubview(checkmarkView)
         
         imageView.snp.makeConstraints { (make) in
             make.top.left.right.bottom.equalToSuperview()
+        }
+        
+        checkmarkView.snp.makeConstraints { (make) in
+            let diameter: CGFloat = 40
+            
+            make.height.width.equalTo(diameter)
+            make.center.equalToSuperview()
         }
     }
     
