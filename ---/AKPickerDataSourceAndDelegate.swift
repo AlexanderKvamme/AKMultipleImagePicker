@@ -75,7 +75,18 @@ extension AKPickerDataSourceAndDelegate: UICollectionViewDataSource {
 
 // MARK: - Protocol Conformance: UICollectionViewDelegate
 
-//extension AKPickerDataSourceAndDelegate: UICollectionViewDelegate {
-//
-//}
+extension AKPickerDataSourceAndDelegate: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("selected cell at: ", indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        print("de-selected cell at: ", indexPath)
+    }
+}
 

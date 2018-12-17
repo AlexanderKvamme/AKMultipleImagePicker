@@ -18,6 +18,14 @@ final class AKImagePickerCell: UICollectionViewCell {
     static let reuseIdentifier = "AKCELL"
     private var imageView = UIImageView()
     
+    // MARK: - Overrides
+    
+    override var isSelected: Bool {
+        didSet {
+            print("I was tapped! - i am now: ", self.isSelected)
+        }
+    }
+    
     // MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -35,7 +43,7 @@ final class AKImagePickerCell: UICollectionViewCell {
     // MARK: - Private methods
     
     private func setup() {
-        imageView.backgroundColor = .green
+        imageView.backgroundColor = .green  
         
         // AddSubviewsAndConstraints
         contentView.addSubview(imageView)
