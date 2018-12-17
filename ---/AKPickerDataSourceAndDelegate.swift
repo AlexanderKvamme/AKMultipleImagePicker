@@ -18,6 +18,7 @@ final class AKPickerDataSourceAndDelegate: NSObject {
     private let imageManager = PHImageManager.default()
     private let itemSize = CGSize(width: 100, height: 100)
     private var imageArray = [UIImage]()
+    private var currentlySelectedImages: [UIImage]? = nil
     
     // MARK: - Initializers
     
@@ -25,8 +26,6 @@ final class AKPickerDataSourceAndDelegate: NSObject {
         super.init()
         setup()
     }
-    
-    // MARK: - Life Cycle
     
     // MARK: - Methods
     
@@ -48,13 +47,18 @@ final class AKPickerDataSourceAndDelegate: NSObject {
         if fetchedAssets.count > 0 {
             for i in 0..<fetchedAssets.count {
                 imageManager.requestImage(for: fetchedAssets.object(at: i), targetSize: itemSize, contentMode: .aspectFill, options: requestOptions) { (result, info) in
-                    print("got image: ", result)
                     if let image = result {
                         self.imageArray.append(image)
                     }
                 }
             }
         }
+    }
+ 
+    // MARK: Public methods
+    
+    func getSelectedImages() -> [UIImage]? {
+        return currentlySelectedImages
     }
 }
 
@@ -82,11 +86,24 @@ extension AKPickerDataSourceAndDelegate: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected cell at: ", indexPath)
+        guard let selectedImageFromCell = (collectionView.cellForItem(at: indexPath)! as! AKImagePickerCell).getImage() else {
+            print("ERROR: could not get image from cell. Should not mark as selected")
+            return
+        }
+        
+        if currentlySelectedImages == nil {
+            currentlySelectedImages = [UIImage]()
+        }
+
+        currentlySelectedImages!.append(selectedImageFromCell)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        print("de-selected cell at: ", indexPath)
+        guard currentlySelectedImages != nil, let imageFromCell = (collectionView.cellForItem(at: indexPath)! as! AKImagePickerCell).getImage()  else { return }
+        
+        if let indexOfImage = currentlySelectedImages?.firstIndex(of: imageFromCell) {
+            currentlySelectedImages!.remove(at: indexOfImage)
+        }
     }
 }
 

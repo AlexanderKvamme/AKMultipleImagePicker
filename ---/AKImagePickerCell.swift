@@ -74,5 +74,9 @@ final class AKImagePickerCell: UICollectionViewCell {
     func update(with image: UIImage) {
         imageView.image = image
     }
+    
+    func getImage() -> UIImage? {
+        return imageView.image
+    }
 }
 

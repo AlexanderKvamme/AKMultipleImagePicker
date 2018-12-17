@@ -16,6 +16,7 @@ class AKMultipleImagePickerController: UIViewController {
     
     private var imagePickerCollectionView: AKImageCollectionView!
     private var dataSourceAndDelegate: AKPickerDataSourceAndDelegate!
+    private var doneButton = UIButton()
     
     // MARK: - Initializers
 
@@ -27,11 +28,19 @@ class AKMultipleImagePickerController: UIViewController {
         setup()
     }
 
-    // MARK: - Methods
+    // MARK: - private methods
     
     private func setup() {
         // Self
         view.backgroundColor = .purple
+        
+        // doneButton
+        doneButton = UIButton(type: .custom)
+        doneButton.setTitle("BEKREFT", for: .normal)
+        doneButton.setTitleColor(.black, for: .normal)
+        doneButton.backgroundColor = .white
+        doneButton.layer.cornerRadius = 20
+        doneButton.addTarget(self, action: #selector(didTapDone), for: .touchUpInside)
         
         // dataSource
         dataSourceAndDelegate = AKPickerDataSourceAndDelegate()
@@ -48,11 +57,24 @@ class AKMultipleImagePickerController: UIViewController {
         
         // addSubviewsAndConstraints
         view.addSubview(imagePickerCollectionView)
+        view.addSubview(doneButton)
         
         imagePickerCollectionView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(40)
             make.left.right.bottom.equalTo(view)
         }
+        
+        doneButton.snp.makeConstraints { (make) in
+            make.bottom.equalToSuperview().offset(-40)
+            make.right.equalToSuperview().offset(-40)
+            make.width.equalTo(100)
+            make.height.equalTo(40)
+        }
+    }
+    
+    @objc private func didTapDone() {
+        print("done!")
+        print("ended up with selected images: ", dataSourceAndDelegate.getSelectedImages())
     }
 }
 
