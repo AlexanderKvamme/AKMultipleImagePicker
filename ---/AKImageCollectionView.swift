@@ -11,4 +11,14 @@ import UIKit
 
 final class AKImageCollectionView: UICollectionView {
     
+    // MARK: - Properties
+    
+    // MARK: - Initializers
+    
+    // MARK: - Life Cycle
+    
+    // MARK: - Methods
+
+
 }
+

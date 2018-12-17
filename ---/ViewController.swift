@@ -21,10 +21,11 @@ class AKMultipleImagePickerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .green
+        view.backgroundColor = .purple
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        
     }
 
     // MARK: - Methods
