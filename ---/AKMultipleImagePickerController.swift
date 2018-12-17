@@ -41,7 +41,7 @@ class AKMultipleImagePickerController: UIViewController {
         collectionViewLayout.estimatedItemSize = CGSize(width: 100, height: 100)
         imagePickerCollectionView = AKImageCollectionView(frame: CGRect.zero, collectionViewLayout: collectionViewLayout)
         imagePickerCollectionView.dataSource = dataSourceAndDelegate
-        imagePickerCollectionView.delegate = dataSourceAndDelegate
+//        imagePickerCollectionView.delegate = dataSourceAndDelegate
         imagePickerCollectionView.register(AKImagePickerCell.self, forCellWithReuseIdentifier: AKImagePickerCell.reuseIdentifier)
         
         // addSubviewsAndConstraints

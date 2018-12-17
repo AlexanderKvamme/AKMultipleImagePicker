@@ -24,7 +24,6 @@ final class AKImagePickerCell: UICollectionViewCell {
         super.init(frame: frame)
         
         setup()
-        print("init cell")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,7 +32,7 @@ final class AKImagePickerCell: UICollectionViewCell {
     
     // MARK: - Life Cycle
     
-    // MARK: - Methods
+    // MARK: - Private methods
     
     private func setup() {
         imageView.backgroundColor = .green
@@ -44,6 +43,12 @@ final class AKImagePickerCell: UICollectionViewCell {
         imageView.snp.makeConstraints { (make) in
             make.top.left.right.bottom.equalToSuperview()
         }
+    }
+    
+    // MARK: Public methods
+    
+    func update(with image: UIImage) {
+        imageView.image = image
     }
 }
 
