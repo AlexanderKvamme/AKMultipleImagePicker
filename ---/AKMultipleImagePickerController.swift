@@ -14,12 +14,26 @@ class AKMultipleImagePickerController: UIViewController {
 
     // MARK: - Properties
     
+    typealias ImageArrayHandler = (([UIImage]) -> ())
+    
     private var imagePickerCollectionView: AKImageCollectionView!
     private var dataSourceAndDelegate: AKPickerDataSourceAndDelegate!
     private var doneButton = UIButton()
     
+    private var completionHandler: ImageArrayHandler
+    
     // MARK: - Initializers
-
+    
+    init(_ handler: @escaping ImageArrayHandler) {
+        completionHandler = handler
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -73,8 +87,15 @@ class AKMultipleImagePickerController: UIViewController {
     }
     
     @objc private func didTapDone() {
-        print("done!")
-        print("ended up with selected images: ", dataSourceAndDelegate.getSelectedImages())
+        if let selectedImages = dataSourceAndDelegate.getSelectedImages() {
+            completionHandler(selectedImages)
+        }
+    }
+    
+    // MARK: Public methods
+    
+    func setCompletionHandler(_ value: @escaping (([UIImage]) -> ()) ) {
+        completionHandler = value
     }
 }
 

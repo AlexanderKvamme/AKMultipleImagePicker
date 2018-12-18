@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1C25952B21C7D3F400562F00 /* AKPickerDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C25952A21C7D3F400562F00 /* AKPickerDataSourceAndDelegate.swift */; };
 		1C25952D21C7D48F00562F00 /* AKImagePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C25952C21C7D48F00562F00 /* AKImagePickerCell.swift */; };
+		1CD107E821C8ED4400048DA2 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD107E721C8ED4400048DA2 /* ContainerViewController.swift */; };
+		1CD107EA21C8F50F00048DA2 /* AKNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD107E921C8F50F00048DA2 /* AKNetworkManager.swift */; };
+		1CD107EC21C9003C00048DA2 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD107EB21C9003C00048DA2 /* CameraViewController.swift */; };
 		1CEA4FA021C7A41200D47389 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEA4F9F21C7A41200D47389 /* AppDelegate.swift */; };
 		1CEA4FA221C7A41200D47389 /* AKMultipleImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEA4FA121C7A41200D47389 /* AKMultipleImagePickerController.swift */; };
 		1CEA4FA521C7A41200D47389 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CEA4FA321C7A41200D47389 /* Main.storyboard */; };
@@ -21,6 +24,9 @@
 /* Begin PBXFileReference section */
 		1C25952A21C7D3F400562F00 /* AKPickerDataSourceAndDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKPickerDataSourceAndDelegate.swift; sourceTree = "<group>"; };
 		1C25952C21C7D48F00562F00 /* AKImagePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKImagePickerCell.swift; sourceTree = "<group>"; };
+		1CD107E721C8ED4400048DA2 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		1CD107E921C8F50F00048DA2 /* AKNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKNetworkManager.swift; sourceTree = "<group>"; };
+		1CD107EB21C9003C00048DA2 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		1CEA4F9C21C7A41200D47389 /* AKMultipleImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AKMultipleImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CEA4F9F21C7A41200D47389 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CEA4FA121C7A41200D47389 /* AKMultipleImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AKMultipleImagePickerController.swift; sourceTree = "<group>"; };
@@ -77,6 +83,8 @@
 		1CEA4F9E21C7A41200D47389 /* AKMultipleImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				1CEA4FB221C7CF3E00D47389 /* AKImageCollectionView.swift */,
+				1C25952C21C7D48F00562F00 /* AKImagePickerCell.swift */,
 				1CEA4F9F21C7A41200D47389 /* AppDelegate.swift */,
 				1CEA4FA321C7A41200D47389 /* Main.storyboard */,
 				1CEA4FA621C7A41600D47389 /* Assets.xcassets */,
@@ -89,10 +97,11 @@
 		1CEA4FB121C7CF0700D47389 /* --- */ = {
 			isa = PBXGroup;
 			children = (
+				1CD107E721C8ED4400048DA2 /* ContainerViewController.swift */,
 				1CEA4FA121C7A41200D47389 /* AKMultipleImagePickerController.swift */,
 				1C25952A21C7D3F400562F00 /* AKPickerDataSourceAndDelegate.swift */,
-				1CEA4FB221C7CF3E00D47389 /* AKImageCollectionView.swift */,
-				1C25952C21C7D48F00562F00 /* AKImagePickerCell.swift */,
+				1CD107E921C8F50F00048DA2 /* AKNetworkManager.swift */,
+				1CD107EB21C9003C00048DA2 /* CameraViewController.swift */,
 			);
 			path = "---";
 			sourceTree = "<group>";
@@ -233,10 +242,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CD107EA21C8F50F00048DA2 /* AKNetworkManager.swift in Sources */,
 				1CEA4FA221C7A41200D47389 /* AKMultipleImagePickerController.swift in Sources */,
 				1C25952B21C7D3F400562F00 /* AKPickerDataSourceAndDelegate.swift in Sources */,
 				1CEA4FA021C7A41200D47389 /* AppDelegate.swift in Sources */,
 				1C25952D21C7D48F00562F00 /* AKImagePickerCell.swift in Sources */,
+				1CD107EC21C9003C00048DA2 /* CameraViewController.swift in Sources */,
+				1CD107E821C8ED4400048DA2 /* ContainerViewController.swift in Sources */,
 				1CEA4FB321C7CF3E00D47389 /* AKImageCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
